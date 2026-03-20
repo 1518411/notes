@@ -1,0 +1,6 @@
+ENUM  -
+gobuster dir -u http://target.com -w /path/to/wordlist.txt
+
+MSF -
+analyze  // anaylzes hosts and ervices in db and provide vulns
+searchsploit // gerp Metaploit for payloads in meta
