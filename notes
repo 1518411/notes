@@ -2,6 +2,8 @@ ENUM  -
 gobuster dir -u http://target.com -w /path/to/wordlist.txt
 enum4linux // smb*samba enum tool
 
+WebDav -
+davtest -auth user:pass -url http://url/webdav
 
 MSF -
 analyze  // anaylzes hosts and ervices in db and provide vulns
