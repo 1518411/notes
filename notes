@@ -11,6 +11,7 @@ iis upload // make sure to set Path /webdavdir/payload
 
 SMB -
 psexec.py user@ip cmd.exe // psawns cmd shell
+exploit/windows/psexec //MSF 
 
 
 MSF -
