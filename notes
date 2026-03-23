@@ -5,6 +5,7 @@ enum4linux // smb*samba enum tool
 RDP -
 rdp_scanner // in msf
 hydra - hydra -L usr.txt -P pass.txt rdp://ip -s port#
+bluekeep
 
 WebDav -
 davtest -auth user:pass -url http://url/webdav
