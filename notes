@@ -29,3 +29,4 @@ SIGN_INS -
 mysql -u username -p
 smbclient //192.168.1.1/sharename -U username
 sudo mount.cifs //192.168.1.1/sharename /mnt/localfolder -o username=user,password=pass
+xfreerdp /u:user /p:pass /V:ip:port#
