@@ -1,3 +1,9 @@
+AUTOPWN -
+#> wget https://raw.githubusercontent.com/hahwul/metasploit-autopwn/master/db_autopwn.rb
+sudo mv db_autopwn.rb /usr/share/metasploit-framework/plugins
+load db_autopwn
+db_autopwn 
+
 ENUM  -
 gobuster dir -u http://target.com -w /path/to/wordlist.txt
 enum4linux -a // smb*samba enum tool
