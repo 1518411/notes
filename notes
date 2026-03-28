@@ -4,6 +4,13 @@ sudo mv db_autopwn.rb /usr/share/metasploit-framework/plugins
 load db_autopwn
 db_autopwn 
 
+WMAP -
+load wmap 
+wmap_sites -a ip 
+wmap_targets
+
+
+
 ENUM  -
 gobuster dir -u http://target.com -w /path/to/wordlist.txt
 enum4linux -a // smb*samba enum tool
