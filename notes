@@ -224,6 +224,15 @@ RSYNC -
 rsync rsync://target1.ine.local
 
 
+HOST WEB SERVER -
+python -m SimpleHTTPServer 80
+
+COMPILING -
+//bin-sploits github -precompiled
+
+
+
+
 
 
 
