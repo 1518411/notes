@@ -64,6 +64,10 @@ post/windows/gather/enum_applications
 post/windows/gather/checkvm
 clearev // clears logs from meterpreter
 wmic qfe get Caption,Description,HotFixID,InstalledOn
+net users
+net user administrator
+net localgroup
+net localgroup administrators
 
 Pivoting WIndows -
 run autoroute -s 10.0.19.0/20
