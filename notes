@@ -36,6 +36,7 @@ use post/linux/gather/enum_xchat
 use post/linux/gather/phpmyadmin_credsteal
 use post/linux/gather/pptpd_chap_secrets
 use post/linux/manage/sshkey_persistence
+lastlog
 **** post/linux/gather/hashdump // needs meterpreter shell with root
 *** use post/linux/manage/sshkey_persistence //set CREATESSHFOLDER true
 
