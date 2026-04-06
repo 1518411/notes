@@ -62,12 +62,20 @@ post/windows/gather/enum_shares
 post/windows/gather/enum_computers
 post/windows/gather/enum_applications
 post/windows/gather/checkvm
+use post/windows/gather/enum_patches
 clearev // clears logs from meterpreter
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 net users
 net user administrator
 net localgroup
 net localgroup administrators
+route print
+arp -a
+netstat -ano
+** JAWS
+https://github.com/411Hall/JAWS // save file as jasws-enum.ps1
+powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename JAWS-Enum.txt
+
 
 Pivoting WIndows -
 run autoroute -s 10.0.19.0/20
